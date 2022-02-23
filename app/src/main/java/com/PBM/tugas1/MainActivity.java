@@ -27,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if (username.trim().equals("")) {
+                if (username.trim().equals("") && password.trim().equals("")) {
+                    etUsername.setError("Kolom username wajib diisi!");
+                    etUsername.setError("Kolom username wajib diisi!");
+                } else if (username.trim().equals("") ) {
                     etUsername.setError("Kolom username wajib diisi!");
                 } else if (password.trim().equals("")) {
                     etPassword.setError("Kolom password wajib diisi!");
