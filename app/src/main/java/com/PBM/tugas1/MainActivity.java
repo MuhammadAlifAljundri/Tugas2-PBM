@@ -2,6 +2,7 @@ package com.PBM.tugas1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,13 +10,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText etUsername, etPassword;
-    private Button btnLogin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        EditText etUsername, etPassword;
+        Button btnLogin;
 
         etUsername = findViewById(R.id.username);
         etPassword = findViewById(R.id.password);
@@ -35,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
                 } else if (password.trim().equals("")) {
                     etPassword.setError("Kolom password wajib diisi!");
                 } else {
+
+                    Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+
                     Toast.makeText(MainActivity.this, "Selamat Datang " + username, Toast.LENGTH_SHORT).show();
                 }
             }
